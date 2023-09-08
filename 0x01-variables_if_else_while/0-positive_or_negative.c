@@ -1,36 +1,29 @@
-/*
- * File: 10-print_comb2.c
- * Auth: Brennan D Baraban
- */
-
+#include <stdlib.h>
+#include <time.h>
 #include <stdio.h>
-
+/* more headers goes there */
 /**
- * main - Prints the numbers from 00 to 99, numbers separated by
- *        a comma followed by a space, in ascending order.
+ * main - Entry point
  *
- * Return: Always 0.
+ * Return: Always 0 (Sucess)
  */
 int main(void)
 {
-	int digit1, digit2;
+	int n;
 
-	for (digit1 = 0; digit1 < 10; digit1++)
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
+	if (n > 0)
 	{
-		for (digit2 = 0; digit2 < 10; digit2++)
-		{
-			putchar((digit1 % 10) + '0');
-			putchar((digit2 % 10) + '0');
-
-			if (digit1 == 9 && digit2 == 9)
-				continue;
-			
-			putchar(',');
-			putchar(' ');
-		}
+		printf("%d is positive\n", n);
 	}
-
-	putchar('\n');
-
+	else if (n < 0)
+	{
+		printf("%d is negative\n", n);
+	}
+	else
+	{
+		printf("%d is zero\n", n);
+	}
 	return (0);
 }
